@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+<script type="text/javascript">
+var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth();
+var yy = date.getYear();
+var year = (yy < 1000) ? yy + 1900 : yy;
+document.getElementById('tgl').innerHTML=day + " " + months[month] + " " + year;
+</script>
+
+
+
+
+<!--batas jam-->
+
+<script type="text/javascript">
+
+
+
+function showTime() {
+    var a_p = "";
+    var today = new Date();
+    var curr_hour = today.getHours();
+    var curr_minute = today.getMinutes();
+    var curr_second = today.getSeconds();
+    if (curr_hour < 12) {
+        a_p = "AM";
+    } else {
+        a_p = "PM";
+    }
+    if (curr_hour == 0) {
+        curr_hour = 12;
+    }
+    if (curr_hour > 12) {
+        curr_hour = curr_hour - 12;
+    }
+    curr_hour = checkTime(curr_hour);
+    curr_minute = checkTime(curr_minute);
+    curr_second = checkTime(curr_second);
+ document.getElementById('clock').innerHTML=curr_hour + ":" + curr_minute + ":" + curr_second + " " + a_p;
+    }
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+setInterval(showTime, 500);
+
+</script>
+
+<!--batas-->
+	<script type="text/javascript">
+    window.setTimeout("waktu()",1000);
+    function waktu() {
+        var tanggal = new Date();
+        setTimeout("waktu()",1000);
+        document.getElementById("jamm").innerHTML = tanggal.getHours();
+        document.getElementById("menit").innerHTML = tanggal.getMinutes();
+        document.getElementById("detik").innerHTML = tanggal.getSeconds();
+    }
+</script>
+<script>
+	var wss_i=0;
+	var wss_array=["Ruang Web desain praktek pindah ke leb-4","Mata kuliah RPL Kosong silahkan TTD","Pemberitahuan tanggal 12-juni-2018 ada acara disnatalis UTY","Libur bersama tanggal 1 - 7 juli dikarenakan acara wisuda"];
+	var wss_isi;
+	function wssnext(){
+		wss_i++;
+		wss_isi.style.opacity = 0;
+		if (wss_i > (wss_array.length - 1)) {
+			wss_i = 0;
+		}
+		setTimeout('wssSlide()',1000);
+	}
+
+	function wssSlide(){
+		wss_isi.innerHTML = wss_array[wss_i];
+		wss_isi.style.opacity = 1;
+		setTimeout('wssnext()',5000);
+	}
+</script>
+</head>
+<body>
+<div id="container">
+	
+<div id="header">
+	<div id="jam">
+		<div id="clock"></div>
+		<!--<li class="cb"><li id="jamm"></li></li>
+		<li class="cb">:<li id="menit"></li></li>
+		<li class="cb"><li id="tgl"></li></li>-->
+	</div>
+
+<div id="logo"><img src="uty.png"></div>
+
+<h1>Universitas Teknologi Yogyakarta</h1>
+<h2 id="h2">
+Jalan Ringroad Utara, Jombor, Sendangadi, Mlati . (0274) 623310</h2>
+
+</div>
+
+<div id="left">
+<b><h1>Pengumuman</h1></b><hr>
+		<div id="isi">
+		<p><h3 id="cob"></h3></p>
+		</div>
+</div>
+<script>wss_isi=document.getElementById("cob"); wssSlide();</script>
+<div id="content">
+	<div id="vidio">
+
+		<video  width="100%" height="100%" autoplay loop>
+			<source src="coba.mp4" type="video/mp4">
+		</video>
+
+
+	</div>
+		<div id="kanan_info">
+			
+			<div id="atas">
+				<div id="cca">Camera 1</div>
+				<video id="cam" autoplay="true" width="480" height="300">
+not</video>
+					<script type="text/javascript">
+				navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
+				navigator.msGetUserMedia || navigator.oGetUserMedia;
+				if (navigator.getUserMedia) {
+					navigator.getUserMedia(
+					{audio:false, video:true},handleV, Verror);}
+				function handleV(stream){
+						document.querySelector('#cam').src = window.URL.createObjectURL(stream)
+					}
+				
+				function Verror(){
+					alert("webcame gk suport");
+				}
+				
+			</script>
+				
+			</div>
+			<div id="bawah"></div>
+				
+		</div>
+</div>
+
+
+<!--<div id=" right"  style=" background-color:#09b800;color:#fff;height:400px;width:200px;float:right;padding:20px;" >
+<b>Right Side</b><br />
+<p style=" text-align:center;" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua.</p>
+</div>-->
+<div id="footer"><marquee>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</marquee></div>
+</body>
+
+
+</html>
